@@ -9,7 +9,7 @@ services:
     container_name: zeebe_broker_1
     image: camunda/zeebe:1.1.0
     environment:
-      - ZEEBE_LOG_LEVEL=debug
+      - ZEEBE_LOG_LEVEL=info
       - ZEEBE_BROKER_CLUSTER_NODEID=0
       - ZEEBE_BROKER_CLUSTER_PARTITIONSCOUNT=2
       - ZEEBE_BROKER_CLUSTER_REPLICATIONFACTOR=3
@@ -28,7 +28,7 @@ services:
     container_name: zeebe_broker_2
     image: camunda/zeebe:1.1.0
     environment:
-      - ZEEBE_LOG_LEVEL=debug
+      - ZEEBE_LOG_LEVEL=info
       - ZEEBE_BROKER_CLUSTER_NODEID=1
       - ZEEBE_BROKER_CLUSTER_PARTITIONSCOUNT=2
       - ZEEBE_BROKER_CLUSTER_REPLICATIONFACTOR=3
@@ -42,7 +42,7 @@ services:
     container_name: zeebe_broker_3
     image: camunda/zeebe:1.1.0
     environment:
-      - ZEEBE_LOG_LEVEL=debug
+      - ZEEBE_LOG_LEVEL=info
       - ZEEBE_BROKER_CLUSTER_NODEID=2
       - ZEEBE_BROKER_CLUSTER_PARTITIONSCOUNT=2
       - ZEEBE_BROKER_CLUSTER_REPLICATIONFACTOR=3
