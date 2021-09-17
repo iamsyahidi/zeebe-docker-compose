@@ -50,6 +50,20 @@ services:
       - database-data:/var/lib/postgresql/data/
     networks:
       - zeebe_network
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin_container
+    environment:
+      PGADMIN_DEFAULT_EMAIL: live@admin.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    depends_on:
+      - db
+    ports:
+      - "5050:80"
+    networks:
+      - zeebe_network
+    restart: unless-stopped
 
 volumes:
   database-data:
