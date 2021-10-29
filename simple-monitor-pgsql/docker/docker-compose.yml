@@ -41,6 +41,25 @@ services:
     networks:
       - zeebe_network
 
+  zeeqs:
+    container_name: zeeqs
+    image: ghcr.io/camunda-community-hub/zeeqs:2.0.0
+    environment:
+      - zeebe.client.worker.hazelcast.connection=zeebe:5701
+      - spring.datasource.url=jdbc:postgresql://db:5432/postgres
+      - spring.datasource.username=postgres
+      - spring.datasource.password=zeebe
+      - spring.datasource.driverClassName=org.postgresql.Driver
+      - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+    volumes:
+      - ../lib/postgresql-42.2.12.jar:/app/libs/postgresql-42.2.12.jar
+    ports:
+      - "9000:9000"
+    depends_on:
+      - db
+    networks:
+      - zeebe_network
+
   db:
     image: postgres:12.2
     restart: always
